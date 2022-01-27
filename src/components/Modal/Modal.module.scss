@@ -1,0 +1,17 @@
+@import 'styles/variables';
+
+.Backdrop {
+  position: fixed;
+  inset: 0;
+  display: flex;
+}
+
+.Modal {
+  position: relative;
+  max-width: 560px;
+  padding: 20px;
+  margin: auto;
+
+  border-radius: 4px;
+  background-color: $light-grey;
+}
