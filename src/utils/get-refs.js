@@ -1,4 +1,6 @@
 export const getRefs = () => ({
-  root: document.getElementById('root'),
-  modalRoot: document.getElementById('modal-root'),
+  root: document.querySelector('#root'),
+  modalRoot: document.querySelector('#modal-root'),
+  input: document.querySelector('[data-input-masked]'),
+  form: document.querySelector('[data-form-masked]'),
 });

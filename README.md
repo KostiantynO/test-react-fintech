@@ -10,6 +10,7 @@ git init
 npm i -D prettier eslint prop-types nanoid react-icons react-toastify
 
 npx mrm@2 lint-staged
+start chrome https://github.com/new
 ```
 
 `package.json`

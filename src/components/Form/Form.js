@@ -1,14 +1,23 @@
 import { useState } from 'react';
 import { toast } from 'react-toastify';
-import { formatNumber } from 'helpers';
 import scss from './Form.module.scss';
 
-export const Form = ({ onSubmit, formattedAmount }) => {
+const toastId = 'out-of-range-twelve-significant';
+
+export const Form = ({ onSubmit }) => {
   const [amount, setAmount] = useState('0');
 
   const handleChange = e => {
-    const formatted = formatNumber(e.target.value);
-    setAmount(formatted);
+    const { value } = e.target;
+    if (value?.length > 15) {
+      if (!toast.isActive(toastId.current)) {
+        toastId.current = toast('Please enter amount.');
+      }
+
+      return;
+    }
+
+    setAmount(value);
   };
 
   const reset = () => {
@@ -18,8 +27,8 @@ export const Form = ({ onSubmit, formattedAmount }) => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    if (!amount) {
-      return toast.error('Please enter correct amount');
+    if (!amount || amount === '0') {
+      return toast.warning('Please enter correct amount');
     }
 
     onSubmit(amount);
@@ -36,6 +45,11 @@ export const Form = ({ onSubmit, formattedAmount }) => {
           type="number"
           name="amount"
           required
+          autoComplete="false"
+          maxLength={15}
+          minLength={1}
+          max={999999999999}
+          min={-999999999999}
         />
       </label>
 

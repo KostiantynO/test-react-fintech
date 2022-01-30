@@ -39,3 +39,27 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 480px;
+  padding: 64px 20px;
+  margin: 0 auto;
+  border-radius: 4px;
+}
+
+.form__label {
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+}
+
+.form__input {
+  padding: 4px;
+  font-family: inherit;
+  font-size: clamp(2rem, 5vw, 3rem);
+  border-radius: 4px;
+}

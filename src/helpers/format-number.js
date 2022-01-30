@@ -1,10 +1,17 @@
-// const newLib = Intl.NumberFormat;
-// console.log('newLib', newLib);
+/* || TASK 1 ====== Vanila JS - format number ====== */
+const numberFormat = new Intl.NumberFormat([], {
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+});
 
-export const formatNumber = num => {
-  if (typeof num !== 'string') {
-    return console.warn(`TypeError: expected string, received ${typeof num}`);
-  }
+export const formatNumber = (number, { separator = '' }) =>
+  numberFormat
+    .formatToParts(number)
+    .map(({ type, value }) =>
+      type === 'decimal' ? '.' : type === 'group' ? separator : value
+    )
+    .join('');
 
-  return parseInt(num, 10).toLocaleString();
-};
+const string = '3123123.00';
+const formatted = formatNumber(string, { separator: ' ' });
+console.log(formatted); // "3 123 123.00"
