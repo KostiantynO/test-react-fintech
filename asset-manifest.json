@@ -1,15 +1,13 @@
 {
   "files": {
-    "main.css": "/test-react-fintech/static/css/main.da004314.css",
-    "main.js": "/test-react-fintech/static/js/main.0ef8cf61.js",
-    "static/js/787.a6d51bb8.chunk.js": "/test-react-fintech/static/js/787.a6d51bb8.chunk.js",
+    "main.css": "/test-react-fintech/static/css/main.32f51db2.css",
+    "main.js": "/test-react-fintech/static/js/main.13f3a76e.js",
     "index.html": "/test-react-fintech/index.html",
-    "main.da004314.css.map": "/test-react-fintech/static/css/main.da004314.css.map",
-    "main.0ef8cf61.js.map": "/test-react-fintech/static/js/main.0ef8cf61.js.map",
-    "787.a6d51bb8.chunk.js.map": "/test-react-fintech/static/js/787.a6d51bb8.chunk.js.map"
+    "main.32f51db2.css.map": "/test-react-fintech/static/css/main.32f51db2.css.map",
+    "main.13f3a76e.js.map": "/test-react-fintech/static/js/main.13f3a76e.js.map"
   },
   "entrypoints": [
-    "static/css/main.da004314.css",
-    "static/js/main.0ef8cf61.js"
+    "static/css/main.32f51db2.css",
+    "static/js/main.13f3a76e.js"
   ]
 }
