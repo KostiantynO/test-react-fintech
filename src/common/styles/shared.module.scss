@@ -1,0 +1,73 @@
+@import 'styles/utils/mixins';
+
+%SharedFlexContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp($spacing * 4px, 3vw, $spacing * 8px);
+
+  padding: clamp($spacing * 4px, 3vw, $spacing * 8px);
+  margin: 0 auto;
+}
+
+%SharedLabel {
+  display: flex;
+  flex-direction: column;
+  gap: clamp($spacing * 1px, 3vw, $spacing * 2px);
+
+  > span {
+    order: 1;
+  }
+
+  > input {
+    order: 2;
+  }
+
+  border-radius: 4px;
+}
+
+%SharedInput {
+  padding: ($spacing * 1px) clamp(($spacing * 1px), 1vw, ($spacing * 2px));
+}
+
+%SharedInput,
+%SharedButton {
+  font-size: inherit;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+
+  border-radius: 4px;
+}
+
+%SharedButton {
+  @extend %SharedFlexContainer;
+  gap: clamp($spacing * 2px, 3vw, $spacing * 4px);
+  max-width: 500px;
+  padding: 12px 16px;
+
+  color: $theme-colors-light-bg-main;
+
+  cursor: pointer;
+  background-color: darken($theme-colors-light-accent, 8);
+  border: none;
+
+  // prettier-ignore
+  box-shadow:
+  1px 2px 4px 1px rgba($theme-colors-light-fg-main, 0.14),
+  1px 2px 6px 3px rgba($theme-colors-light-fg-main, 0.12),
+  1px 2px 12px 4px rgba($theme-colors-light-fg-main, 0.08);
+
+  @include transition(color, background-color, transform);
+
+  &:hover,
+  &:focus {
+    background-color: $theme-colors-light-accent;
+    transform: scale(1.02);
+  }
+}
+
+%SharedIconButton {
+  @extend %SharedFlexContainer;
+  max-width: $spacing * 20px;
+  border-radius: 50%;
+}

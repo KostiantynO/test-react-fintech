@@ -7,7 +7,7 @@ code .
 cp -R ../react-homework-template-main/ ./
 
 git init
-npm i -D prettier eslint prop-types nanoid react-icons react-toastify
+npm i -D prettier eslint prop-types axios nanoid react-icons react-toastify
 
 npx mrm@2 lint-staged
 start chrome https://github.com/new

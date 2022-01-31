@@ -1,0 +1,18 @@
+@import 'common/styles/shared.module';
+
+.Header {
+  padding: ($spacing * 8px) 0;
+}
+
+.FilterForm {
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.Label {
+  @extend %SharedLabel;
+}
+
+.Input {
+  @extend %SharedInput;
+}

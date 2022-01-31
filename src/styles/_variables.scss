@@ -1,15 +1,19 @@
 // theme
-$accent: #2196f3;
-$primary-text: #212121;
-$secondary-text: #757575;
-$white: #fff;
-$light-grey: #eee;
+$spacing: 4;
+
+// pallette
+$theme-colors-light-accent: #2196f3;
+$theme-colors-light-fg-main: #212121;
+$theme-colors-light-fg-second: #757575;
+$theme-colors-light-bg-main: #fff;
+$theme-colors-light-bg-second: #eee;
 
 // breakpoints
-$bp-mobile-xl: 480px;
-$bp-tablet: 768px;
-$bp-desktop: 1200px;
+$bp-mobile-xl: $spacing * 120px; // 480px
+$bp-tablet: $spacing * 192px; // 768px
+$bp-laptop: $spacing * 300px; // 1200px
+$bp-desktop: $spacing * 465px; // 1860px
 
 // transition
-$time: 250ms;
-$cubic: cubic-bezier(0.4, 0, 0.2, 1);
+$theme-transition-time: 250ms;
+$theme-transition-cubic: cubic-bezier(0.4, 0, 0.2, 1);

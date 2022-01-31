@@ -1,0 +1,19 @@
+@import 'styles/variables';
+
+.Container {
+  max-width: $bp-mobile-xl;
+  padding: 0 ($spacing * 4px);
+  margin: 0 auto;
+
+  @media screen and (min-width: $bp-tablet) {
+    max-width: $bp-tablet;
+  }
+
+  @media screen and (min-width: $bp-laptop) {
+    max-width: $bp-laptop;
+  }
+
+  @media screen and (min-width: $bp-desktop) {
+    max-width: $bp-desktop;
+  }
+}

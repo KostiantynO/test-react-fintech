@@ -1,0 +1,9 @@
+@import 'common/styles/shared.module';
+
+.Footer {
+  padding: ($spacing * 8px) 0;
+}
+
+.Input {
+  @extend %SharedInput;
+}

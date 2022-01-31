@@ -1,0 +1,9 @@
+@import 'styles/variables';
+
+.App {
+  grid-template-columns: 1fr;
+  grid-gap: $spacing * 4px;
+  display: grid;
+  height: 100%;
+  padding-bottom: $spacing * 16px;
+}

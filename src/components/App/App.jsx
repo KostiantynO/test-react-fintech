@@ -1,26 +1,53 @@
-import { ToastContainer } from 'react-toastify';
-import { Form } from 'components';
+import { useEffect, useReducer } from 'react';
+import { AppProvider, MainWrapper } from 'common';
+import { action, appReducer } from 'hooks';
+import { Header, Main, Sidebar, Footer } from 'components';
+import { API } from 'apis';
 
-import 'react-toastify/dist/ReactToastify.css';
-import scss from './App.module.scss';
+const INITIAL_STATE = Object.freeze({ amount: '', users: [], user: {} });
 
 export const App = () => {
-  // const [amount, setAmount] = useState(0);
+  const [state, dispatch] = useReducer(appReducer, INITIAL_STATE);
 
-  const onSubmit = num => {
-    // setAmount(num);
-  };
+  useEffect(() => {
+    const getUsers = async () => {
+      const { data } = await API.fetchUsers();
+      console.log('getUsers ~ data', data);
+
+      try {
+        dispatch({ type: action.setUsers, payload: data });
+      } catch (error) {}
+    };
+
+    getUsers();
+  }, []);
 
   return (
-    <div className={scss.App}>
-      <section className={scss.Section}>
-        <div className={scss.Container}>
-          <h1 className={scss.H1}>Format Number</h1>
+    <AppProvider value={[state, dispatch]}>
+      <Header />
 
-          <Form onSubmit={onSubmit} />
-        </div>
-      </section>
-      <ToastContainer autoClose={3000} />
-    </div>
+      <MainWrapper>
+        <Sidebar />
+        <ul style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+          {state?.users?.map(
+            (user, idx) =>
+              user && (
+                <li key={user.id ? user.id : idx}>
+                  <img
+                    src={user.avatar_url}
+                    alt={user.name}
+                    width="80"
+                    height="80"
+                  />
+                  <p>{user.login}</p>
+                </li>
+              )
+          )}
+        </ul>
+        <Main />
+      </MainWrapper>
+
+      <Footer />
+    </AppProvider>
   );
 };

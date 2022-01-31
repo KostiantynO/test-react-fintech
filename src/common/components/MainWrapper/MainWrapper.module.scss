@@ -1,0 +1,13 @@
+@import 'common/styles/shared.module';
+
+.MainWrapper {
+  @extend %SharedFlexContainer;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0;
+
+  @media screen and (min-width: $bp-tablet) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

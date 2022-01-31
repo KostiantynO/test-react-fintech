@@ -1,0 +1,10 @@
+@import 'styles/variables';
+
+.Section {
+  padding: ($spacing * 8px) 0;
+}
+
+.Title {
+  font-size: clamp(2rem, 3vw, 3rem);
+  text-align: center;
+}

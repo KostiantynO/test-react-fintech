@@ -1,0 +1,7 @@
+@import 'styles/variables';
+
+.Sidebar {
+  @media screen and (min-width: $bp-tablet) {
+    flex-basis: 30%;
+  }
+}

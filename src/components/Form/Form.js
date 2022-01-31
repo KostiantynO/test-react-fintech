@@ -1,23 +1,26 @@
-import { useState } from 'react';
+import { useState, useContext, useRef } from 'react';
+import { AppContext } from 'context';
 import { toast } from 'react-toastify';
 import scss from './Form.module.scss';
+import { action } from 'hooks';
 
-const toastId = 'out-of-range-twelve-significant';
-
-export const Form = ({ onSubmit }) => {
+export const Form = () => {
   const [amount, setAmount] = useState('0');
+  const [, dispatch] = useContext(AppContext);
+  const toastId = useRef(null);
 
   const handleChange = e => {
     const { value } = e.target;
+
     if (value?.length > 15) {
       if (!toast.isActive(toastId.current)) {
-        toastId.current = toast('Please enter amount.');
+        toastId.current = toast.warning('Please enter correct amount.');
       }
-
       return;
     }
 
     setAmount(value);
+    toastId.current = null;
   };
 
   const reset = () => {
@@ -27,11 +30,11 @@ export const Form = ({ onSubmit }) => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    if (!amount || amount === '0') {
+    if (amount === '' || amount === '0' || amount?.length > 15) {
       return toast.warning('Please enter correct amount');
     }
 
-    onSubmit(amount);
+    dispatch({ type: action.setAmount, payload: amount });
     reset();
   };
 

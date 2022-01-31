@@ -1,0 +1,17 @@
+@import 'styles/variables';
+
+// transition
+@mixin transition($args...) {
+  $tp: null;
+
+  @each $arg in $args {
+    @if $tp {
+      $tp: $tp, $arg;
+    } @else {
+      $tp: $arg;
+    }
+  }
+
+  transition: $theme-transition-time $theme-transition-cubic;
+  transition-property: $tp;
+}
